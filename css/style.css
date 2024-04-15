@@ -1,0 +1,41 @@
+.black-box {
+    width: 60%;  /* Adjust width as needed */
+    height: 60%; /* Adjust height as needed */
+    background-color: black;
+    box-shadow: 0 0 20px yellow; /* Horizontal, vertical offsets, blur radius, and color */
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    
+}
+.teksti {
+    margin-top: 10%;
+    color: black;
+    text-align: center;
+    background-color: rgb(225, 173, 18);
+    border-radius: 10px;
+    width: 35%;
+}
+
+.teksti1 {
+    margin-top: 1%;
+    color: black;
+    text-align: center;
+    background-color: rgb(225, 173, 18);
+    border-radius: 10px;
+    width: 50%;
+}
+.dropdown {
+    padding-top: 5%;
+    
+}
+
+.btn {
+    margin-top: 5%;
+}
+p{
+    background-color: rgb(209, 172, 23);
+    border-radius: 10px;
+    width: 45%;
+
+}
