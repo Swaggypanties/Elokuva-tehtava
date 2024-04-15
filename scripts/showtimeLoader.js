@@ -1,4 +1,3 @@
-// showtimeLoader.js
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const theaterId = urlParams.get('theaterId');
@@ -60,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const titleParagraph = document.createElement('p');
             titleParagraph.textContent = title;
 
+            // This paragraph will use the updated formatShowtime function
             const showTimeParagraph = document.createElement('p');
             showTimeParagraph.textContent = `Showtime: ${formatShowtime(showTimes)}`;
 
@@ -91,48 +91,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// The updated formatShowtime function with date and time formatting
 function formatShowtime(showtimeStr) {
     const showDate = new Date(showtimeStr);
-    return showDate.toLocaleString(); // Adjust formatting as needed
+    const day = showDate.getDate();
+    const month = showDate.getMonth() + 1;
+    const year = showDate.getFullYear();
+    const hours = showDate.getHours();
+    const minutes = showDate.getMinutes();
+    return `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year} at ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
 }
-
-function formatShowtime(showtimeStr) {
-    const showDate = new Date(showtimeStr);
-    // Extract day, month, and year from the date object
-    const day = showDate.getDate(); // Gets the day of the month (1-31)
-    const month = showDate.getMonth() + 1; // Gets the month (0-11, where January is 0)
-    const year = showDate.getFullYear(); // Gets the full year (e.g., 2021)
-
-    // Format the date as day/month/year
-    // Ensuring day and month are two digits using 'padStart'
-    return `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
-}
-
-// showtimeLoader.js
-document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const theaterId = urlParams.get('theaterId');
-    const theaterName = urlParams.get('theaterName');
-
-    // Display the theater name
-    const theaterHeading = document.getElementById('Theater');
-    if (theaterName) {
-        theaterHeading.textContent = ` ${decodeURIComponent(theaterName)}`;
-    } else {
-        theaterHeading.textContent = "Theater not found";
-    }
-
-    if (theaterId) {
-        // existing fetch calls to populate movies based on theaterId
-        fetch(`https://www.finnkino.fi/xml/Schedule/?area=${theaterId}`)
-        .then(response => response.text())
-        .then(handleData)
-        .catch(error => {
-            console.error('Error fetching movie schedule:', error);
-        });
-    }
-
-    function handleData(str) {
-        // existing logic to parse XML and display movies
-    }
-});
