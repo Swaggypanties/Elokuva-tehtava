@@ -5,7 +5,7 @@
     box-shadow: 0 0 20px yellow; 
     flex-direction: column;
     display: flex;
-    
+    align-items: center;
 }
 .teksti {
     margin-top: 10%;
