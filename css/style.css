@@ -1,9 +1,8 @@
 .black-box {
-    width: 60%;  /* Adjust width as needed */
-    height: 60%; /* Adjust height as needed */
+    width: 60%;  
+    height: 60%; 
     background-color: black;
-    box-shadow: 0 0 20px yellow; /* Horizontal, vertical offsets, blur radius, and color */
-    align-items: center;
+    box-shadow: 0 0 20px yellow; 
     flex-direction: column;
     display: flex;
     
